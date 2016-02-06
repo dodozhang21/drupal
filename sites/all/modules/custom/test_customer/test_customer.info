@@ -7,7 +7,6 @@ dependencies[] = date
 dependencies[] = email
 dependencies[] = features
 dependencies[] = telephone
-dependencies[] = text
 dependencies[] = user
 features[features_api][] = api:2
 features[field_base][] = field_address

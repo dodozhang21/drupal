@@ -5,3 +5,53 @@
  */
 
 include_once 'test_customer.features.inc';
+
+/**
+ * The path to baby name finder.
+ */
+define('TEST_CUSTOMER_LISTING_PATH', 'customer-listing');
+
+/**
+ * Implements hook_theme().
+ */
+function test_customer_theme($existing, $type, $theme, $path) {
+  return array(
+    // The main recipe template.
+    'customer_listing' => array(
+      'variables' => array(
+        'customers' => array(),
+      ),
+      'file' => 'includes/customer_listing.inc',
+      'template' => 'templates/customer-listing',
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_menu().
+ */
+function test_customer_menu() {
+  $items[TEST_CUSTOMER_LISTING_PATH] = array(
+    'title' => 'Customer Listing',
+    'page callback' => 'customer_listing',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+/**
+ * Builds the customer listing page.
+ *
+ * @return array
+ *   An render array for the output.
+ */
+function customer_listing() {
+  $output = array(
+    'content' => array(
+      '#theme' => 'customer_listing',
+    ),
+  );
+  return $output;
+}

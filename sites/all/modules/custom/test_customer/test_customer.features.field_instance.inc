@@ -27,7 +27,7 @@ function test_customer_field_default_field_instances() {
           'use_widget_handlers' => 1,
         ),
         'type' => 'addressfield_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -51,9 +51,9 @@ function test_customer_field_default_field_instances() {
         'default_country' => 'US',
         'format_handlers' => array(
           'address' => 'address',
+          'address-hide-country' => 'address-hide-country',
           'address-hide-postal-code' => 0,
           'address-hide-street' => 0,
-          'address-hide-country' => 0,
           'organisation' => 0,
           'name-full' => 0,
           'name-oneline' => 0,
@@ -74,16 +74,9 @@ function test_customer_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'show_remaining_days' => FALSE,
-        ),
-        'type' => 'date_default',
-        'weight' => 3,
+        'settings' => array(),
+        'type' => 'date_plain',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -131,8 +124,8 @@ function test_customer_field_default_field_instances() {
         'label' => 'above',
         'module' => 'email',
         'settings' => array(),
-        'type' => 'email_default',
-        'weight' => 2,
+        'type' => 'email_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -168,9 +161,11 @@ function test_customer_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_plain',
+        'module' => 'telephone',
+        'settings' => array(
+          'title' => '',
+        ),
+        'type' => 'telephone_link',
         'weight' => 1,
       ),
       'teaser' => array(
